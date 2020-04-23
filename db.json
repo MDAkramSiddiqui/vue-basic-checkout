@@ -29,5 +29,14 @@
       "qty": 1
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "1587671338542",
+      "title": "The Dog Hoodie",
+      "description": "This is the best pet in the world",
+      "price": 19.99,
+      "qty": "26",
+      "createdAt": 1587671338678
+    }
+  ]
 }

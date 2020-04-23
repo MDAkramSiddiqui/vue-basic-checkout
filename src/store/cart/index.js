@@ -33,6 +33,10 @@ const mutations = {
     const index = state.cartItems.findIndex((el) => el.id === payload.id);
     state.cartItems.splice(index, 1);
   },
+  UPDATE_CART_ITEM: (state, payload) => {
+    const index = state.cartItems.findIndex((el) => el.id === payload.id);
+    state.cartItems[index] = payload;
+  },
 };
 
 const actions = {
@@ -57,6 +61,17 @@ const actions = {
     try {
       await axios.delete(`${API_URL}/cart/${payload.id}`);
       context.commit("REMOVE_CART_ITEM", payload);
+    } catch (err) {
+      console.log(err.message);
+    }
+  },
+  updateCartQty: async (context, payload) => {
+    try {
+      const { data } = await axios.put(
+        `${API_URL}/cart/${payload.id}`,
+        payload
+      );
+      context.commit("UPDATE_CART_ITEM", data);
     } catch (err) {
       console.log(err.message);
     }

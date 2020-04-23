@@ -2,12 +2,20 @@
   <tr>
     <td>{{ item.title }}</td>
     <td>
+      <!-- <input
+        type="number"
+        class="form-control"
+        min="1"
+        style="width:100px"
+        v-model="item.qty"
+      /> -->
       <input
         type="number"
         class="form-control"
         min="1"
         style="width:100px"
         v-model="item.qty"
+        @click="updateCartQty(item)"
       />
     </td>
     <td>${{ itemTotalPrice }}</td>
@@ -25,7 +33,7 @@ export default {
   name: "CartListItem",
   props: ["item"],
   methods: {
-    ...mapActions(["removeFromCart"]),
+    ...mapActions(["removeFromCart", "updateCartQty"]),
   },
   computed: {
     itemTotalPrice() {
