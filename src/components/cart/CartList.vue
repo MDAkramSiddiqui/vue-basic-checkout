@@ -17,7 +17,7 @@
     <hr />
     <button class="btn btn-success btn-lg">
       Checkout
-      <span>($)</span>
+      <span>(${{ totalPrice }})</span>
     </button>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
     CartListItem,
   },
   computed: {
-    ...mapGetters(["cartItems"]),
+    ...mapGetters(["cartItems", "totalPrice"]),
   },
   created() {
     this.$store.dispatch("fetchCarts");

@@ -9,15 +9,21 @@
           {{ product.description }}
         </p>
         <p class="text-primary">${{ product.price }}</p>
-        <button class="btn btn-primary">Add to Cart</button>
+        <button class="btn btn-primary" @click="addToCart(product)">
+          Add to Cart
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "ProductListItem",
   props: ["product"],
+  methods: {
+    ...mapActions(["addToCart"]),
+  },
 };
 </script>
